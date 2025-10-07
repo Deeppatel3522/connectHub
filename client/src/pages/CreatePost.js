@@ -45,7 +45,7 @@ function CreatePost() {
         setError('');
 
         try {
-            const response = await fetch('/api/posts', {
+            const response = await fetch('https://connecthub-server-9twq.onrender.com/api/posts', {
                 method: 'POST',
                 headers: getAuthHeaders(),
                 body: JSON.stringify({

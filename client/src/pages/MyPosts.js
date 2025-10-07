@@ -31,7 +31,7 @@ function MyPosts() {
             setError(null);
 
             console.log("Frontend: Fetching my posts...");
-            const response = await fetch('/api/my-posts', {
+            const response = await fetch('https://connecthub-server-9twq.onrender.com/api/my-posts', {
                 headers: getAuthHeaders()
             });
 
@@ -57,7 +57,7 @@ function MyPosts() {
         if (window.confirm('Are you sure you want to delete this post?')) {
             try {
                 console.log("Frontend: Deleting post:", postId);
-                const response = await fetch(`/api/my-posts/${postId}`, {
+                const response = await fetch(`https://connecthub-server-9twq.onrender.com/api/my-posts/${postId}`, {
                     method: 'DELETE',
                     headers: getAuthHeaders()
                 });
@@ -92,7 +92,7 @@ function MyPosts() {
         try {
             setSaving(true);
             console.log("Frontend: Updating post:", postId);
-            const response = await fetch(`/api/my-posts/${postId}`, {
+            const response = await fetch(`https://connecthub-server-9twq.onrender.com/api/my-posts/${postId}`, {
                 method: 'PUT',
                 headers: getAuthHeaders(),
                 body: JSON.stringify({

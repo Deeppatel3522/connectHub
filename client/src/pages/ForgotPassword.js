@@ -14,7 +14,7 @@ function ForgotPassword() {
         setMessage('');
 
         try {
-            const response = await fetch('/api/auth/forgot-password', {
+            const response = await fetch('https://connecthub-server-9twq.onrender.com/api/auth/forgot-password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

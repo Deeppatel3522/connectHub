@@ -19,7 +19,7 @@ function ResetPassword() {
 
     const verifyToken = async () => {
         try {
-            const response = await fetch(`/api/auth/verify-reset-token/${token}`);
+            const response = await fetch(`https://connecthub-server-9twq.onrender.com/api/auth/verify-reset-token/${token}`);
             const data = await response.json();
 
             if (response.ok) {
@@ -55,7 +55,7 @@ function ResetPassword() {
         setMessage('');
 
         try {
-            const response = await fetch(`/api/auth/reset-password/${token}`, {
+            const response = await fetch(`https://connecthub-server-9twq.onrender.com/api/auth/reset-password/${token}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

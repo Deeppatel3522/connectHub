@@ -34,7 +34,7 @@ function Posts() {
             setError(null);
 
             console.log("Frontend: Fetching posts from API...");
-            const response = await fetch('/api/posts');
+            const response = await fetch('https://connecthub-server-9twq.onrender.com/api/posts');
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -71,7 +71,7 @@ function Posts() {
 
             for (const post of postsData) {
                 try {
-                    const response = await fetch(`/api/posts/${post._id}/like-status`, {
+                    const response = await fetch(`https://connecthub-server-9twq.onrender.com/api/posts/${post._id}/like-status`, {
                         headers: getAuthHeaders()
                     });
 
@@ -99,7 +99,7 @@ function Posts() {
         }
 
         try {
-            const response = await fetch(`/api/posts/${postId}/toggle-like`, {
+            const response = await fetch(`https://connecthub-server-9twq.onrender.com/api/posts/${postId}/toggle-like`, {
                 method: 'POST',
                 headers: getAuthHeaders()
             });
@@ -135,7 +135,7 @@ function Posts() {
         if (!showComments[postId]) {
             // Load comments if not already loaded
             try {
-                const response = await fetch(`/api/posts/${postId}/comments`);
+                const response = await fetch(`https://connecthub-server-9twq.onrender.com/api/posts/${postId}/comments`);
                 if (response.ok) {
                     const commentsData = await response.json();
                     setComments(prev => ({ ...prev, [postId]: commentsData }));
@@ -161,7 +161,7 @@ function Posts() {
         }
 
         try {
-            const response = await fetch(`/api/posts/${postId}/comments`, {
+            const response = await fetch(`https://connecthub-server-9twq.onrender.com/api/posts/${postId}/comments`, {
                 method: 'POST',
                 headers: getAuthHeaders(),
                 body: JSON.stringify({ content: commentText.trim() })
@@ -201,7 +201,7 @@ function Posts() {
         }
 
         try {
-            const response = await fetch(`/api/posts/comments/${commentId}`, {
+            const response = await fetch(`https://connecthub-server-9twq.onrender.com/api/posts/comments/${commentId}`, {
                 method: 'DELETE',
                 headers: getAuthHeaders()
             });
